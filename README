@@ -1,0 +1,14 @@
+A quick and dirty hack that wraps the glibc ld.so. It helps you run
+binaries dynamically linked against glibc if your system libc is
+something else, e.g. musl.
+
+This should make it a bit less annoying to work around idiotic
+upstreams and distributions that want you to run random blobs.
+
+Of course you still need glibc and all the runtime dependencies
+installed. On Gentoo, use crossdev to build the appropriate toolchain
+(e.g. crossdev -t x86_64-pc-linux-gnu) and install any extra
+dependencies into the crossdev prefix. Then, update the config.h file
+and the Makefile to reflect your config and build fakeld.
+
+A better build system is planned.
